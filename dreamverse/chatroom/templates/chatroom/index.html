@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-language Chat</title>
+</head>
+<body>
+    <h1>Welcome to the Multi-language Chat!</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="user_name">User name:</label>
+        <input type="text" name="user_name" id="user_name" required>
+        <br>
+        <label for="language">Language:</label>
+        <select name="language" id="language">
+            {% for language in languages %}
+            <option value="{{ language.code }}">{{ language.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="submit" value="Enter Chat">
+    </form>
+</body>
+</html>
